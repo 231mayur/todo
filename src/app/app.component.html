@@ -1,0 +1,33 @@
+<app-header />
+
+<main>
+  <ul id="users">
+    @for (user of users; track $index) {
+        <li><app-user [user]="user" [selected]="user.id === selectedUserOn.id"
+        (select)="onSelectUser($event)" />
+    </li>
+    }
+
+    <!-- <li><app-user [user]="users[1]"
+        (select)="onSelectUser($event)" />
+    </li>
+    <li><app-user [user]="users[2]"
+        (select)="onSelectUser($event)" />
+    </li>
+    <li><app-user [user]="users[3]"
+        (select)="onSelectUser($event)" />
+    </li>
+    <li><app-user [user]="users[4]"
+        (select)="onSelectUser($event)" />
+    </li>
+        <li><app-user [user]="users[5]"
+        (select)="onSelectUser($event)" />
+    </li> -->
+  </ul>
+  @if (selectedUserOn) {
+    <app-tasks [user]="selectedUserOn"></app-tasks>
+  } @else {
+    <h2>Select the user</h2>
+  }
+  
+</main>
